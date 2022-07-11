@@ -1,0 +1,61 @@
+CREATE DATABASE [Tarea2Jonathan1]
+
+USE [Tarea2Jonathan1]
+GO
+
+/****** Object:  Table [dbo].[Edificio]  
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Edificio](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](max) NOT NULL,
+	[Capacidad] [int] NOT NULL,
+	[FechaAdquisicion] [datetime2](7) NOT NULL,
+	[Provincia] [nvarchar](max) NOT NULL,
+	[Canton] [nvarchar](max) NOT NULL,
+	[Distrito] [nvarchar](max) NOT NULL,
+	[Tipo] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Edificio] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Servicio]    
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Servicio](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NombreServicio] [nvarchar](max) NOT NULL,
+	[Tipo] [nvarchar](max) NOT NULL,
+	[Unidad] [nvarchar](max) NOT NULL,
+	[Empresa] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Servicio] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Spe]    
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Spe](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NombreEdificio] [nvarchar](max) NOT NULL,
+	[Servicios] [nvarchar](max) NOT NULL,
+	[EmpresaServicio] [nvarchar](max) NOT NULL,
+	[FechaAdquisicion] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Spe] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
