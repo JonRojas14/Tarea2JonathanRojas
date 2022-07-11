@@ -1,0 +1,93 @@
+﻿@model Tarea2JonathanRojas.Models.Edificio 
+
+@{
+    ViewData["Title"] = "Editar Edificio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Editar Edificio</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="Edit">
+
+                <input type="hidden" asp-for="Id" />
+
+
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                   <label asp-for="Nombre" class="control-label" ></label>
+                   <input asp-for="Nombre" class="form-control" />
+                   <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Capacidad" class="control-label" ></label>
+                   <input asp-for="Capacidad" class="form-control" />
+                   <span asp-validation-for="Capacidad" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="FechaAdquisicion" class="control-label" ></label>
+                   <input asp-for="FechaAdquisicion" class="form-control" />
+                   <span asp-validation-for="FechaAdquisicion" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Provincia" class="control-label" ></label>
+                   <input asp-for="Provincia" class="form-control" list="provincias" id="provincia" />
+                   <span asp-validation-for="Provincia" class="text-danger"></span>
+                   <datalist id="provincias">
+                       <option value="San Jose"></option>
+                       <option value="Alajuela"></option>
+                       <option value="Cartago"></option>
+                       <option value="Heredia"></option>
+                       <option value="Limon"></option>
+                       <option value="Puntarenas"></option>
+                       <option value="Guanacaste"></option>
+                   </datalist>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Canton" class="control-label" ></label>
+                   <input asp-for="Canton" class="form-control"/>
+                   <span asp-validation-for="Canton" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Distrito" class="control-label" ></label>
+                   <input asp-for="Distrito" class="form-control" />
+                   <span asp-validation-for="Distrito" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Tipo" class="control-label" ></label>
+                   <input asp-for="Tipo" class="form-control" list="tipos" id="tipo" />
+                   <datalist id="tipos">
+                       <option value="Alquilado"></option>
+                       <option value="Comprado"></option>
+                   </datalist>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Editar edificio" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div> 
+    </div>
+
+</div>
+
+@section Scripts{
+
+    @{ <partial name="_ValidationScriptsPartial" />}
+
+}

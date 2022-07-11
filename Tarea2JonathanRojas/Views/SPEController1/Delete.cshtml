@@ -1,0 +1,63 @@
+﻿@model Tarea2JonathanRojas.Models.ServPorEdif 
+
+@{
+    ViewData["Title"] = "Eliminar Servicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Eliminar Registro</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="DeleteServicio">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                   <label asp-for="NombreEdificio" class="control-label" ></label>
+                   <input asp-for="NombreEdificio" class="form-control" readonly/>
+                   <span asp-validation-for="NombreEdificio" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Servicios" class="control-label" ></label>
+                   <input asp-for="Servicios" class="form-control" list="servicios" id="servicio" readonly/>
+                   <span asp-validation-for="Servicios" class="text-danger"></span>
+                </div>
+
+               <div class="form-group">
+                   <label asp-for="EmpresaServicio" class="control-label" ></label>
+                   <input asp-for="EmpresaServicio" class="form-control" list="unidades" id="unidad" readonly/>
+                   <span asp-validation-for="EmpresaServicio" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="FechaAdquisicion" class="control-label" ></label>
+                   <input asp-for="FechaAdquisicion" class="form-control" readonly/>
+                   <span asp-validation-for="FechaAdquisicion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Borrar Registro" class="btn btn-primary" />
+                </div>
+
+
+            </form>
+        </div> 
+    </div>
+
+</div>
+
+@section Scripts{
+
+    @{ <partial name="_ValidationScriptsPartial" />}
+
+}
+

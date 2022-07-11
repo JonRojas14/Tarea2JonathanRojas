@@ -1,0 +1,74 @@
+﻿@model Tarea2JonathanRojas.Models.Servicio 
+
+@{
+    ViewData["Title"] = "Editar Servicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Editar Servicio</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="Edit">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                   <label asp-for="NombreServicio" class="control-label" ></label>
+                   <input asp-for="NombreServicio" class="form-control" />
+                   <span asp-validation-for="NombreServicio" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Tipo" class="control-label" ></label>
+                   <input asp-for="Tipo" class="form-control" list="servicios" id="servicio"/>
+                   <span asp-validation-for="Tipo" class="text-danger"></span>
+                   <datalist id="servicios">
+                       <option value="Agua"></option>
+                       <option value="Luz"></option>
+                       <option value="Telefonia"></option>
+                       <option value="Cable"></option>
+                       <option value="Internet"></option>
+                   </datalist>
+                </div>
+
+               <div class="form-group">
+                   <label asp-for="Unidad" class="control-label" ></label>
+                   <input asp-for="Unidad" class="form-control" list="unidades" id="unidad"/>
+                   <span asp-validation-for="Unidad" class="text-danger"></span>
+                     <datalist id="unidades">
+                       <option value="Litros"></option>
+                       <option value="Watts"></option>
+                       <option value="Minutos"></option>
+                       <option value="Megas"></option>
+                   </datalist>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Empresa" class="control-label" ></label>
+                   <input asp-for="Empresa" class="form-control" />
+                   <span asp-validation-for="Empresa" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Editar servicio" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div> 
+    </div>
+
+</div>
+
+@section Scripts{
+
+    @{ <partial name="_ValidationScriptsPartial" />}
+
+}
